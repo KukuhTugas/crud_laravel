@@ -21,6 +21,10 @@ Route::group(['prefix' => 'pertanyaan'], function() {
     Route::get('/', 'PertanyaanController@index')->name('pertanyaan.index');
     Route::get('/create', 'PertanyaanController@create')->name('pertanyaan.create');
     Route::post('/', 'PertanyaanController@store')->name('pertanyaan.store');
+    Route::get('/{id}', 'PertanyaanController@show')->name('pertanyaan.show');
+    Route::get('/{id}/edit', 'PertanyaanController@edit')->name('pertanyaan.edit');
+    Route::put('/{id}', 'PertanyaanController@update')->name('pertanyaan.update');
+    Route::delete('/{id}', 'PertanyaanController@destroy')->name('pertanyaan.destroy');
 });
 
 Route::group(['prefix' => 'jawaban'], function() {

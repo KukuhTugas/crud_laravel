@@ -38,6 +38,20 @@
                      <td>
                         <a href="{{ route('jawaban.index', $value->id) }}" class="btn btn-warning">Lihat Jawaban</a>
                         <a href="{{ route('jawaban.create', $value->id) }}" class="btn btn-success">Jawab</a>
+
+                        <div class="btn-group" role="group">
+                           <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"></button>
+                           <div class="dropdown-menu"> 
+                              <a href="{{ route('pertanyaan.show', $value->id) }}" class="btn-detaildata text-info dropdown-item" ><i class="fa fa-eye"></i>Detail</a>
+                              <a href="{{ route('pertanyaan.edit', $value->id) }}" class="btn-editdata text-info dropdown-item"><i class="fa fa-edit"></i> Edit</a>
+                              <form method="POST" action="{{ route('pertanyaan.destroy', $value->id) }}">
+                                 @csrf
+                                 @method('DELETE')
+                                 <button type="submit" class="btn-hapusdata text-danger dropdown-item"><i class="fa fa-trash"></i>Hapus</button>  
+                              </form>
+                           </div>
+                        </div>
+
                      </td>
                   </tr>
                @endforeach
